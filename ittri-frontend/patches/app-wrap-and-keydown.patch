@@ -1,0 +1,31 @@
+*** Begin Patch
+*** Update File: src/app/(dashboard)/conversations/page.tsx
+@@
+-            onKeyPress={(e) => e.key === 'Enter' && handleSend()}
++            onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+*** End Patch
+*** Begin Patch
+*** Update File: src/app/layout.tsx
+@@
+-import './globals.css'
++import './globals.css'
++import { QueryProvider } from '@/providers/query-provider'
++import { ThemeProvider } from '@/providers/theme-provider'
+@@
+ export default function RootLayout({
+   children,
+ }: {
+   children: React.ReactNode
+ }) {
+   return (
+     <html lang="en">
+-      <body className={inter.className}>{children}</body>
++      <body className={inter.className}>
++        <QueryProvider>
++          <ThemeProvider>{children}</ThemeProvider>
++        </QueryProvider>
++      </body>
+     </html>
+   )
+ }
+*** End Patch

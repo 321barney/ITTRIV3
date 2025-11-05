@@ -1,0 +1,15 @@
+syntax = "proto3";
+package portal.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/struct.proto";
+
+service PortalService {
+  rpc PostPortal(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { post: "/portal" body: "*" };
+  }
+}
+
+message Empty {}
+message AnyRequest { google.protobuf.Struct body = 1; }
+message AnyResponse { google.protobuf.Struct body = 1; }

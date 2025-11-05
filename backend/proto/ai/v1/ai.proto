@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+package ai.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/struct.proto";
+
+// AI Service - Handles all AI-powered features including code generation,
+// content creation, SEO, and chat interactions
+service AIService {
+  // Code generation
+  rpc GenerateCode(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/ai/code/gen"
+      body: "body"
+    };
+  }
+
+  // Content creation - generate briefs
+  rpc CreateBrief(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/ai/content/brief"
+      body: "body"
+    };
+  }
+
+  // Content creation - extract SEO meta
+  rpc ExtractMeta(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/ai/content/meta"
+      body: "body"
+    };
+  }
+
+  // SEO - enhance prompts
+  rpc EnhancePrompt(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/ai/seo/enhance"
+      body: "body"
+    };
+  }
+
+  // SEO - generate hints
+  rpc GenerateHints(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/ai/seo/hints"
+      body: "body"
+    };
+  }
+
+  // Chat - send message
+  rpc SendChatMessage(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/ai/chat/send"
+      body: "body"
+    };
+  }
+
+  // Sessions - list all chat sessions
+  rpc ListSessions(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/ai/sessions"
+    };
+  }
+
+  // Sessions - get specific session
+  rpc GetSession(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/ai/sessions/{body.sessionId}"
+    };
+  }
+
+  // Sessions - delete session
+  rpc DeleteSession(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = {
+      delete: "/api/v1/ai/sessions/{body.sessionId}"
+    };
+  }
+
+  // Messages - list messages for a session
+  rpc ListMessages(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/ai/sessions/{body.sessionId}/messages"
+    };
+  }
+}
+
+// Flexible request/response using google.protobuf.Struct for JSON payloads
+message AnyRequest {
+  google.protobuf.Struct body = 1;
+}
+
+message AnyResponse {
+  google.protobuf.Struct body = 1;
+}

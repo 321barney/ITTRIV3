@@ -1,0 +1,39 @@
+syntax = "proto3";
+package admin.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/struct.proto";
+
+service AdminService {
+  rpc GetAdminOrders(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/api/v2/admin/orders" };
+  }
+  rpc GetAdminOrdersId(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/api/v2/admin/orders/:id" };
+  }
+  rpc PatchAdminOrdersId(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { patch: "/api/v2/admin/orders/:id" body: "*" };
+  }
+  rpc GetAdminConfig(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/api/v2/admin/config" };
+  }
+  rpc PutAdminConfigKey(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { put: "/api/v2/admin/config/:key" body: "*" };
+  }
+  rpc GetAdminMetrics(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/admin/metrics" };
+  }
+  rpc GetAdminActions(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/api/v2/admin/actions" };
+  }
+  rpc PostAdminSubscriptionSet(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { post: "/api/v2/admin/subscription/set" body: "*" };
+  }
+  rpc GetAdminSubscriptionState(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/api/v2/admin/subscription/state" };
+  }
+}
+
+message Empty {}
+message AnyRequest { google.protobuf.Struct body = 1; }
+message AnyResponse { google.protobuf.Struct body = 1; }

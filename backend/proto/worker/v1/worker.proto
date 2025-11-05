@@ -1,0 +1,25 @@
+syntax = "proto3";
+package worker.v1;
+import "google/api/annotations.proto";
+message Empty {}
+message HealthCheckRequest {}
+message HealthCheckResponse { string status = 1; string version = 2; }
+message KickIngestRequest { string label = 1; }
+message KickIngestResponse { bool accepted = 1; string job_id = 2; }
+message UploadChunk { string file_name = 1; bytes data = 2; bool eof = 3; }
+message UploadResult { string file_name = 1; string job_id = 2; }
+message QueueRequest {}
+message QueueItem { string id = 1; string label = 2; int64 enqueued_at = 3; }
+message QueueResponse { repeated QueueItem items = 1; }
+message KickConversationRequest { string label = 1; }
+message KickConversationResponse { bool accepted = 1; }
+service IngestService {
+  rpc Health(HealthCheckRequest) returns (HealthCheckResponse) { option (google.api.http) = { get: "/api/v1/worker/ingest/health" }; }
+  rpc Warm(Empty) returns (Empty) { option (google.api.http) = { get: "/api/v1/worker/ingest/warm" }; }
+  rpc KickIngest(KickIngestRequest) returns (KickIngestResponse) { option (google.api.http) = { post: "/api/v1/worker/ingest/kick" body: "*" }; }
+  rpc Upload(stream UploadChunk) returns (UploadResult);
+}
+service ConversationService {
+  rpc Queue(QueueRequest) returns (QueueResponse) { option (google.api.http) = { get: "/api/v1/worker/conversation/queue" }; }
+  rpc Kick(KickConversationRequest) returns (KickConversationResponse) { option (google.api.http) = { post: "/api/v1/worker/conversation/kick" body: "*" }; }
+}

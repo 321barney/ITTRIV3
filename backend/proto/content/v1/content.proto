@@ -1,0 +1,18 @@
+syntax = "proto3";
+package content.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/struct.proto";
+
+service ContentService {
+  rpc PostContentBrief(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { post: "/content/brief" body: "*" };
+  }
+  rpc PostContentMeta(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { post: "/content/meta" body: "*" };
+  }
+}
+
+message Empty {}
+message AnyRequest { google.protobuf.Struct body = 1; }
+message AnyResponse { google.protobuf.Struct body = 1; }

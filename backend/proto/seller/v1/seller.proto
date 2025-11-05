@@ -1,0 +1,57 @@
+syntax = "proto3";
+package seller.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/struct.proto";
+
+service SellerService {
+  rpc GetSellerDashboard(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/api/v2/seller/dashboard" };
+  }
+  rpc GetSellerProducts(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/seller/products" };
+  }
+  rpc PostSellerProducts(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { post: "/seller/products" body: "*" };
+  }
+  rpc PostSellerProductsWithPage(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { post: "/seller/products/with-page" body: "*" };
+  }
+  rpc PutSellerProductsId(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { put: "/seller/products/:id" body: "*" };
+  }
+  rpc DeleteSellerProductsId(Empty) returns (AnyResponse) {
+    option (google.api.http) = { delete: "/seller/products/:id" };
+  }
+  rpc PostSellerProductsAi(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { post: "/seller/products/ai" body: "*" };
+  }
+  rpc PostSellerStores(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { post: "/seller/stores" body: "*" };
+  }
+  rpc PatchSellerStoreSettings(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { patch: "/seller/store/settings" body: "*" };
+  }
+  rpc GetSellerStore(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/seller/store" };
+  }
+  rpc PutSellerStore(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { put: "/seller/store" body: "*" };
+  }
+  rpc GetSellerStoresId(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/seller/stores/:id" };
+  }
+  rpc PutSellerStoresId(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { put: "/seller/stores/:id" body: "*" };
+  }
+  rpc GetSellerStores(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/seller/stores" };
+  }
+  rpc PostSellerAi(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { post: "/seller/ai" body: "*" };
+  }
+}
+
+message Empty {}
+message AnyRequest { google.protobuf.Struct body = 1; }
+message AnyResponse { google.protobuf.Struct body = 1; }

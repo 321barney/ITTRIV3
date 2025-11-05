@@ -1,0 +1,121 @@
+{
+  "/mnt/data/latest_src/src/config.ts": [
+    "./config.js",
+    "../utils/schemaSync.js",
+    "../utils/migrate.js"
+  ],
+  "/mnt/data/latest_src/src/main.ts": [
+    "./api/server.js",
+    "./db/index.js",
+    "./ai/ollama.js"
+  ],
+  "/mnt/data/latest_src/src/ai/extract.ts": [
+    "./ittriClient.js"
+  ],
+  "/mnt/data/latest_src/src/ai/index.js": [
+    "../ai/index.js",
+    "./ollama.js",
+    "./ollama.js",
+    "./ollama.js",
+    "./ittriClient.js",
+    "./ittriClient.js",
+    "./ittriClient.js",
+    "./ittriClient.js",
+    "./prompt.js",
+    "./prompt.js",
+    "./tools.js",
+    "./tools.js",
+    "./extract.js"
+  ],
+  "/mnt/data/latest_src/src/ai/ittriClient.ts": [
+    "./ollama.js"
+  ],
+  "/mnt/data/latest_src/src/api/aiAgentWorker.ts": [
+    "../queues/index.js",
+    "../db/index.js",
+    "../ai/index.js"
+  ],
+  "/mnt/data/latest_src/src/api/scheduler.ts": [
+    "../db/index.js",
+    "../queues/index.js"
+  ],
+  "/mnt/data/latest_src/src/api/server.ts": [
+    "../db/index.js",
+    "./routes/ai.js",
+    "../plugins/apiKey.js"
+  ],
+  "/mnt/data/latest_src/src/api/routes/admin.ts": [
+    "../../utils/pii.js",
+    "../../utils/conversations.js"
+  ],
+  "/mnt/data/latest_src/src/api/routes/ai.ts": [
+    "../../ai/ollama.js",
+    "../../ai/embeddings.js"
+  ],
+  "/mnt/data/latest_src/src/api/routes/auth.login.ts": [
+    "../../db/index.js"
+  ],
+  "/mnt/data/latest_src/src/api/routes/auth.register.ts": [
+    "../../db/index.js"
+  ],
+  "/mnt/data/latest_src/src/api/routes/ittri-router.ts": [
+    "../../../shared/src/env.js",
+    "../../../shared/src/http.js",
+    "./ittriClient.js",
+    "./lang.js"
+  ],
+  "/mnt/data/latest_src/src/api/routes/order.ts": [
+    "../../utils/conversations.js"
+  ],
+  "/mnt/data/latest_src/src/convo/convoWorker.ts": [
+    "../queues/index.js",
+    "../db/index.js",
+    "./storeApiSelector.js",
+    "./waClient.js",
+    "./dbConvo.js",
+    "./prompt.js",
+    "../ai/ollamaClient.js"
+  ],
+  "/mnt/data/latest_src/src/convo/normalize.ts": [
+    "../ai/ollamaClient.js"
+  ],
+  "/mnt/data/latest_src/src/convo/semanticLookup.ts": [
+    "../ai/embeddings.js",
+    "../vector/pgvector.js",
+    "../db/index.js"
+  ],
+  "/mnt/data/latest_src/src/convo/sheetsIngestor.ts": [
+    "../queues/index.js",
+    "../db/index.js",
+    "../utils/sheets.js",
+    "../ai/embeddings.js",
+    "../vector/pgvector.js",
+    "./normalize.js"
+  ],
+  "/mnt/data/latest_src/src/db/index.ts": [
+    "./config.js",
+    "../utils/schemaSync.js",
+    "../utils/migrate.js"
+  ],
+  "/mnt/data/latest_src/src/db/scripts/migrate.ts": [
+    "../config.js"
+  ],
+  "/mnt/data/latest_src/src/db/scripts/test-connection.ts": [
+    "../index.js"
+  ],
+  "/mnt/data/latest_src/src/db/scripts/verify-setup.ts": [
+    "../index.js"
+  ],
+  "/mnt/data/latest_src/src/utils/bus.ts": [
+    "../lib/bus"
+  ],
+  "/mnt/data/latest_src/src/utils/conversations.ts": [
+    "./pii.js"
+  ],
+  "/mnt/data/latest_src/src/vector/index.ts": [
+    "../db/index.js"
+  ],
+  "/mnt/data/latest_src/src/worker/dbWorker.ts": [
+    "../services/whatsapp"
+  ]
+}

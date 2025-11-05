@@ -1,0 +1,14 @@
+version: v2
+plugins:
+  - remote: buf.build/community/stephenh-ts-proto
+    out: src/gen
+    opt:
+      - outputServices=grpc-js
+      - env=node
+      - useOptionals=messages
+      - esModuleInterop=true
+      - stringEnums=true
+      - oneof=unions
+      - addGrpcMetadata=true
+      - metadata=grpc
+      - returnObservable=false

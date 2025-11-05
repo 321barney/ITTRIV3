@@ -1,0 +1,24 @@
+syntax = "proto3";
+package orders.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/struct.proto";
+
+service OrdersService {
+  rpc GetOrders(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/orders" };
+  }
+  rpc GetOrdersId(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/orders/:id" };
+  }
+  rpc PostOrdersIdAi(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { post: "/orders/:id/ai" body: "*" };
+  }
+  rpc PostOrdersIdOutbound(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { post: "/orders/:id/outbound" body: "*" };
+  }
+}
+
+message Empty {}
+message AnyRequest { google.protobuf.Struct body = 1; }
+message AnyResponse { google.protobuf.Struct body = 1; }

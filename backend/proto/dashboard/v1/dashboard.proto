@@ -1,0 +1,15 @@
+syntax = "proto3";
+package dashboard.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/struct.proto";
+
+service DashboardService {
+  rpc PutDashboardStoresId(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { put: "/dashboard/stores/:id" body: "*" };
+  }
+}
+
+message Empty {}
+message AnyRequest { google.protobuf.Struct body = 1; }
+message AnyResponse { google.protobuf.Struct body = 1; }

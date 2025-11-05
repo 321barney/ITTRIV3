@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ITTRI | AI Call Center & CRM SaaS — Lean Startup Plan (2025–2028)</title>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+        line-height: 1.6;
+        background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+        color: #0f172a;
+      }
+      .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+      header {
+        background: #fff; padding: 40px; border-radius: 18px;
+        box-shadow: 0 12px 40px rgba(0,0,0,.25); text-align: center;
+        position: relative; overflow: hidden;
+      }
+      header:before {
+        content: ""; position: absolute; inset: 0; height: 6px;
+        background: linear-gradient(90deg, #1e3a8a, #0ea5e9, #22c55e);
+      }
+      h1 { font-size: 2.4rem; color: #0f172a; font-weight: 800; margin-bottom: 8px; }
+      .subtitle { color: #475569; font-size: 1.1rem; }
+      .section {
+        background: #fff; padding: 28px; border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0,0,0,.15); margin-top: 22px;
+      }
+      h2 {
+        font-size: 1.6rem; color: #0f172a; font-weight: 800;
+        border-bottom: 3px solid #0f172a; padding-bottom: 10px; margin-bottom: 12px;
+      }
+      h3 { font-size: 1.1rem; color: #1e3a8a; font-weight: 800; margin-top: 12px; margin-bottom: 8px; }
+      .grid { display: grid; gap: 16px; }
+      .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+      .grid-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+      .card {
+        background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+        padding: 18px; border-radius: 12px; border-left: 6px solid #1e3a8a;
+      }
+      .pill {
+        display: inline-block; padding: 6px 10px; border-radius: 999px;
+        background: #e2e8f0; font-size: .85rem; margin-right: 6px; color: #0f172a;
+      }
+      .kpi {
+        background: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%);
+        color: #fff; padding: 18px; border-radius: 14px; text-align: center;
+      }
+      .kpi .v { font-weight: 900; font-size: 1.6rem; }
+      .note {
+        background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+        border-left: 6px solid #f59e0b; padding: 14px; border-radius: 10px; margin-top: 10px;
+      }
+      table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+      th, td { padding: 10px 12px; border-bottom: 1px solid #e2e8f0; text-align: left; }
+      th {
+        background: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%);
+        color: #fff; font-weight: 700; font-size: .9rem; letter-spacing: .3px;
+      }
+      tr:nth-child(even) { background: #f8fafc; }
+      .muted { color: #64748b; }
+      .warn { color: #f59e0b; font-weight: 700; }
+      footer { color: #fff; text-align: center; margin: 26px 0 8px 0; }
+      .badge { background: #dbeafe; color: #1e40af; border-radius: 6px; padding: 2px 6px; font-size: .78rem; margin-left: 6px; }
+      .row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+      /* ROI Chart */
+      .chart-wrap { background:#fff; padding:16px; border-radius:14px; box-shadow:0 8px 24px rgba(0,0,0,.12); margin-top:10px; }
+      .chart-legend { display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:8px; }
+      .dot { width:12px; height:12px; border-radius:50%; display:inline-block; }
+      .dot-roi { background:#1e3a8a; }
+      .dot-capex { background:#0ea5e9; }
+      .small { font-size:.9rem; color:#475569; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🚀 ITTRI — AI Call Center & CRM SaaS</h1>
+        <p class="subtitle">Lean, privacy-first platform for selected e-commerce & retail sellers</p>
+        <div class="row" style="justify-content: center; margin-top: 12px">
+          <span class="pill">Launch <strong>Jan 2026</strong> (Silent Mode)</span>
+          <span class="pill">Fundraising window opens <strong>06 Jun 2026</strong></span>
+          <span class="pill">Team: 9</span>
+        </div>
+      </header>
+
+      <!-- EXEC SUMMARY -->
+      <section class="section">
+        <h2>🎯 Executive Summary</h2>
+        <div class="grid grid-3">
+          <div class="kpi"><div class="v">20–40</div><div>Pilot Sellers (Jan–Jun 2026)</div></div>
+          <div class="kpi"><div class="v">€12–25k</div><div>MRR Target by Q4 2026</div></div>
+          <div class="kpi"><div class="v">€600k</div><div>Seed Raise Opens 06 Jun 2026</div></div>
+        </div>
+        <div class="note" style="margin-top: 12px">
+          <strong>Silent-mode launch:</strong> invited sellers, low usage, fast feedback before wider release.
+        </div>
+        <div class="note" style="margin-top: 10px">
+          <strong>Seller tools:</strong> users will manage their <strong>store</strong> from our platform. The full toolset is <em>not disclosed</em> yet and will be shown to selected sellers under NDA.
+        </div>
+      </section>
+
+      <!-- CURRENT STAGE -->
+      <section class="section">
+        <h2>🧭 Current Stage (Oct 2025)</h2>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>Product & Tech</h3>
+            <ul>
+              <li>AI in training (call routing, understanding questions, FAQs)</li>
+              <li>Website and dashboard under test</li>
+              <li>Database set up with privacy rules</li>
+              <li>Core CRM + voice line; shop connectors (Shopify/WooCommerce)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Launch Readiness</h3>
+            <ul>
+              <li>Load tests planned for Nov–Dec 2025</li>
+              <li>Local data collected for fine-tuning (anonymized)</li>
+              <li>Clear guides for onboarding, support, and incidents</li>
+              <li>Go-to-market ready for <strong>Jan 2026</strong></li>
+            </ul>
+            <p class="muted" style="margin-top: 6px"><em>Team is self-paid; remuneration via equity until seed.</em></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCT SNAPSHOT -->
+      <section class="section">
+        <h2>💡 Product Snapshot</h2>
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>AI Call Center</h3>
+            <ul>
+              <li>Handles incoming calls, callbacks, and messages to tickets</li>
+              <li>Pass to a human with full context when needed</li>
+              <li>Monthly minutes limits by plan</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Lean CRM</h3>
+            <ul>
+              <li>Contacts, deals, tasks, response times</li>
+              <li>One inbox for email/SMS/WhatsApp</li>
+              <li>Simple reports and customer feedback</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Light Supply Ops</h3>
+            <ul>
+              <li>Order sync and status updates</li>
+              <li>Low-stock alerts and easy reorders</li>
+              <li>Shipping label links (added step by step)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Seller Tools (Undisclosed) -->
+        <div class="card" style="margin-top:12px">
+          <h3>Seller Tools (Undisclosed — Silent Mode)</h3>
+          <p class="muted">Tools to run the store from one place. Full list stays private for now; shown to invited sellers under NDA.</p>
+          <ul style="margin-top:8px">
+            <li><strong>Central Dashboard</strong> — one screen for support, sales, and stock.</li>
+            <li><strong>FastCheckout</strong> — quick checkout flow.</li>
+            <li><strong>Custom Payment Methods</strong> — payment options tailored to the seller, linked to FastCheckout.</li>
+          </ul>
+        </div>
+
+        <div class="row" style="margin-top: 10px">
+          <span class="badge">Privacy-first</span>
+          <span class="badge">Cost-aware</span>
+          <span class="badge">Built for SMBs</span>
+        </div>
+      </section>
+
+      <!-- SILENT LAUNCH PLAN -->
+      <section class="section">
+        <h2>🕶️ Silent-Mode Launch (Jan 2026)</h2>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>Target Cohort</h3>
+            <ul>
+              <li>Selected local sellers (e-commerce/retail)</li>
+              <li>Low usage by design: 1–5 agents, 1–2k calls/month</li>
+              <li>Weekly feedback meetings</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Exit Criteria</h3>
+            <ul>
+              <li>Customer satisfaction ≥ 95%</li>
+              <li>Serious incidents &lt; 2% over 60 days</li>
+              <li>AI solves ≥ 40% of top issues without a human</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note"><strong>Why silent:</strong> lower costs, protect the brand, learn faster with real users.</div>
+      </section>
+
+      <!-- ROADMAP (LEAN) -->
+      <section class="section">
+        <h2>🗺️ Roadmap (Lean & Phased)</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Phase</th><th>Window</th><th>Focus</th><th>Deliverables</th><th>Cost (Cap/OpEx)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>P0 — Stabilize</strong></td>
+              <td>Oct–Dec 2025</td>
+              <td>Reliability & tests</td>
+              <td>Load tests, incident guide, billing basics</td>
+              <td>€40k</td>
+            </tr>
+            <tr>
+              <td><strong>P1 — Silent Launch</strong></td>
+              <td>Jan–Mar 2026</td>
+              <td>Pilot sellers</td>
+              <td>20–40 sellers live, weekly feedback, rapid fixes</td>
+              <td>€80k</td>
+            </tr>
+            <tr>
+              <td><strong>P2 — Fit & Proof</strong></td>
+              <td>Apr–Jun 2026</td>
+              <td>Unit economics</td>
+              <td>Pricing plans, minutes limits, first supply add-ons</td>
+              <td>€90k</td>
+            </tr>
+            <tr>
+              <td><strong>P3 — Broader Access</strong></td>
+              <td>Jul–Dec 2026</td>
+              <td>Careful scale-up</td>
+              <td>Simple self-serve, selected plug-ins</td>
+              <td>€140k</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- FINANCIAL PLAN -->
+      <section class="section">
+        <h2>💰 Lean Financial Plan (Resized for Small Startup)</h2>
+
+        <h3>12-Month Operating Plan (Jan–Dec 2026)</h3>
+        <table>
+          <thead>
+            <tr><th>Category</th><th>Budget (2026)</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Cloud & Telephony</td><td>€55k</td><td>Usage limits to control spend</td></tr>
+            <tr><td>Security & Compliance</td><td>€15k</td><td>Privacy reviews and tools</td></tr>
+            <tr><td>Tools & Licenses</td><td>€18k</td><td>Build, analytics, support</td></tr>
+            <tr><td>Go-to-Market (Silent)</td><td>€25k</td><td>Founder-led sales and events</td></tr>
+            <tr><td>Payroll</td><td>€0</td><td><strong>Self-paid; equity-based remuneration</strong></td></tr>
+            <tr><td>Contingency (8%)</td><td>€30k</td><td>General buffer</td></tr>
+            <tr style="font-weight:700;background:#f8fafc"><td>Total OpEx 2026</td><td>€143k</td><td></td></tr>
+          </tbody>
+        </table>
+
+        <h3>Revenue Targets</h3>
+        <table>
+          <thead><tr><th>Period</th><th>MRR Target</th><th>Assumptions</th></tr></thead>
+          <tbody>
+            <tr><td>Q1 2026</td><td>€2–4k</td><td>Early pilot fees</td></tr>
+            <tr><td>Q2 2026</td><td>€6–10k</td><td>20–40 active sellers</td></tr>
+            <tr><td>Q3 2026</td><td>€9–15k</td><td>Waitlist and light self-serve</td></tr>
+            <tr><td>Q4 2026</td><td>€12–25k</td><td>Better retention and pricing</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- CAPEX -->
+      <section class="section">
+        <h2>🏗️ Capital Expenditure (CAPEX)</h2>
+        <table>
+          <thead><tr><th>Period</th><th>Investment</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td>2025–2026</td><td>€60k</td><td>Initial setup; leased AI hardware; security work</td></tr>
+            <tr><td>2027</td><td>€100k</td><td>More compute and storage; basic backup</td></tr>
+            <tr><td>2028</td><td>€1.2M</td><td><strong>Build ITTRI Data Center</strong> to run AI in-house (lower cost, faster, EU data kept local)</td></tr>
+            <tr><td>2029</td><td>€150k</td><td>Expansion & upgrades</td></tr>
+            <tr><td>2030</td><td>€150k</td><td>Refresh & maintenance</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ROI CURVE (INCLUDES CAPEX) -->
+      <section class="section">
+        <h2>📈 ROI Curve (2026–2030) — includes CAPEX</h2>
+        <p class="muted small">Illustrative view. ROI = cumulative net cash flow ÷ (seed €0.6M + cumulative CAPEX).</p>
+
+        <div class="chart-wrap">
+          <svg viewBox="0 0 720 340" width="100%" height="auto" role="img" aria-label="ROI curve and CAPEX bars 2026–2030">
+            <!-- Axes -->
+            <line x1="70" y1="280" x2="690" y2="280" stroke="#cbd5e1" stroke-width="2"/>
+            <line x1="70" y1="40"  x2="70"  y2="280" stroke="#cbd5e1" stroke-width="2"/>
+
+            <!-- Y grid / labels -->
+            <g fill="#64748b" font-size="12">
+              <text x="18" y="284">0%</text>
+              <text x="18" y="244">100%</text>
+              <text x="18" y="204">200%</text>
+              <text x="18" y="164">300%</text>
+              <text x="18" y="124">400%</text>
+              <text x="18" y="84">500%</text>
+            </g>
+            <g stroke="#e2e8f0" stroke-width="1">
+              <line x1="70" y1="244" x2="690" y2="244"/>
+              <line x1="70" y1="204" x2="690" y2="204"/>
+              <line x1="70" y1="164" x2="690" y2="164"/>
+              <line x1="70" y1="124" x2="690" y2="124"/>
+              <line x1="70" y1="84"  x2="690" y2="84"/>
+            </g>
+
+            <!-- X labels -->
+            <g fill="#64748b" font-size="12" text-anchor="middle">
+              <text x="110" y="300">2026</text>
+              <text x="230" y="300">2027</text>
+              <text x="350" y="300">2028</text>
+              <text x="470" y="300">2029</text>
+              <text x="590" y="300">2030</text>
+            </g>
+
+            <!-- CAPEX bars -->
+            <!-- scaled visually (not monetary scale): 60k, 100k, 1.2M, 150k, 150k -->
+            <g fill="#0ea5e9">
+              <rect x="102" y="270" width="16" height="10"/>
+              <rect x="222" y="266" width="16" height="14"/>
+              <rect x="342" y="160" width="16" height="120"/>
+              <rect x="462" y="260" width="16" height="20"/>
+              <rect x="582" y="260" width="16" height="20"/>
+            </g>
+
+            <!-- ROI line (cumulative) -->
+            <!-- ROI% (illustrative): 2026:-8, 2027:59, 2028:53, 2029:232, 2030:476 -->
+            <polyline fill="none" stroke="#1e3a8a" stroke-width="3"
+              points="110,274 230,236 350,240 470,152 590,60" />
+            <!-- Points -->
+            <g fill="#1e3a8a">
+              <circle cx="110" cy="274" r="5"/>
+              <circle cx="230" cy="236" r="5"/>
+              <circle cx="350" cy="240" r="5"/>
+              <circle cx="470" cy="152" r="5"/>
+              <circle cx="590" cy="60"  r="5"/>
+            </g>
+            <!-- Labels -->
+            <g fill="#0f172a" font-size="12" text-anchor="middle">
+              <text x="110" y="268">-8%</text>
+              <text x="230" y="230">59%</text>
+              <text x="350" y="234">53%</text>
+              <text x="470" y="146">232%</text>
+              <text x="590" y="54">476%</text>
+            </g>
+          </svg>
+
+          <div class="chart-legend small">
+            <span class="dot dot-roi"></span> ROI (cumulative)
+            <span class="dot dot-capex"></span> CAPEX (bars)
+          </div>
+        </div>
+
+        <!-- Assumptions -->
+        <h3 style="margin-top:12px">Assumptions (Illustrative)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Year</th><th>Revenue (€M)</th><th>OpEx (€M)</th><th>CAPEX (€M)</th><th>Net Cash Flow (€M)</th><th>Cumulative ROI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>2026</td><td>0.15</td><td>0.143</td><td>0.06</td><td>-0.053</td><td>-8%</td></tr>
+            <tr><td>2027</td><td>1.20</td><td>0.60</td><td>0.10</td><td>+0.50</td><td>59%</td></tr>
+            <tr><td>2028</td><td>3.00</td><td>1.20</td><td>1.20</td><td>+0.60</td><td>53%</td></tr>
+            <tr><td>2029</td><td>6.00</td><td>2.00</td><td>0.15</td><td>+3.85</td><td>232%</td></tr>
+            <tr><td>2030</td><td>9.00</td><td>3.00</td><td>0.15</td><td>+5.85</td><td>476%</td></tr>
+          </tbody>
+        </table>
+        <p class="muted small">Includes seed (€0.6M) and CAPEX in invested capital; values are placeholders and can be replaced with live numbers.</p>
+      </section>
+
+      <!-- FUNDRAISING PLAN -->
+      <section class="section">
+        <h2>📅 Fundraising Plan</h2>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>Timeline & Use</h3>
+            <ul>
+              <li><strong>Open:</strong> <u>06 Jun 2026</u></li>
+              <li><strong>Round:</strong> Seed — target <strong>€600k</strong></li>
+              <li><strong>Use:</strong> 60% team, 20% platform costs, 10% go-to-market, 10% buffer</li>
+              <li><strong>Structure:</strong> SAFE with cap or standard equity</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Milestones to Unlock</h3>
+            <ul>
+              <li>40 active sellers with ≥ 95% CSAT</li>
+              <li>AI solves ≥ 40% on top intents</li>
+              <li>Gross margin ≥ 60% at pilot scale</li>
+              <li>Churn ≤ 3% monthly during Q2–Q3 2026</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEAM -->
+      <section class="section">
+        <h2>👥 Current Team (9) & Simple Org</h2>
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>Leadership & Operations</h3>
+            <ul>
+              <li>Project Manager — plan and delivery</li>
+              <li>SaaS Operations — uptime and service levels</li>
+              <li>Automation & Monitoring</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Design & Security</h3>
+            <ul>
+              <li>Systems Architect</li>
+              <li>Cybersecurity — access control and compliance</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Engineering</h3>
+            <ul>
+              <li>Backend/AI Engineers (3)</li>
+              <li>Frontend Engineer</li>
+            </ul>
+          </div>
+        </div>
+        <p class="muted" style="margin-top: 8px">Post-seed hires: support, data, and customer success as revenue grows.</p>
+      </section>
+
+      <!-- RISKS -->
+      <section class="section">
+        <h2>🛡️ Key Risks & Mitigations</h2>
+        <table>
+          <thead><tr><th>Risk</th><th>Impact</th><th>Mitigation</th></tr></thead>
+          <tbody>
+            <tr><td>AI quality below bar</td><td class="warn">High</td><td>Human hand-off, limited scope at first, weekly tests, extra checks</td></tr>
+            <tr><td>Telephony cost spikes</td><td>Medium</td><td>Minutes limits, better routing, rate talks with providers</td></tr>
+            <tr><td>Data privacy</td><td class="warn">High</td><td>Privacy by design, standard data agreements, regular reviews</td></tr>
+            <tr><td>Slow adoption</td><td>Medium</td><td>Careful seller fit, founder sales, local references</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section" style="background: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%); color: #fff;">
+        <h2 style="color: #fff; border-bottom: 3px solid #fff">📞 Next Steps & Contact</h2>
+
+        <div class="card" style="background: rgba(255,255,255,.12); border-left-color:#22c55e; margin-bottom:10px; color:#fff">
+          <h3 style="color:#fff">📌 Current Stage Recap</h3>
+          <ul>
+            <li>AI under development & training</li>
+            <li>Website under test</li>
+            <li>Database installed & configured</li>
+            <li>Launch: <strong>Jan 2026</strong> — Silent mode, selected sellers, low metrics</li>
+          </ul>
+        </div>
+
+        <div class="grid grid-3" style="margin-top: 10px">
+          <div class="kpi"><div class="v">Jan 2026</div><div>Silent Launch</div></div>
+          <div class="kpi"><div class="v">06 Jun 2026</div><div>Seed Opens</div></div>
+          <div class="kpi"><div class="v">20–40</div><div>Initial Sellers</div></div>
+        </div>
+
+        <div style="margin-top:16px; padding:22px; background:rgba(255,255,255,0.12); border-radius:14px; backdrop-filter:blur(8px)">
+          <h3 style="color:#fff; margin-bottom:10px">📧 Contact</h3>
+          <p><strong>Company:</strong> ITTRI</p>
+          <p><strong>Contact:</strong> Chaimae Amharech</p>
+          <p><strong>Phone:</strong> 0687255170</p>
+          <!-- Email intentionally removed; address omitted -->
+        </div>
+      </section>
+
+      <footer>
+        <p>© 2025 ITTRI — Confidential Lean Startup Plan</p>
+        <p class="muted">Prepared Oct 2025 • Launch Jan 2026 • Seed opens 06 Jun 2026 • Data Center planned 2028</p>
+      </footer>
+    </div>
+  </body>
+</html>

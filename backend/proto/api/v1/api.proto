@@ -1,0 +1,51 @@
+syntax = "proto3";
+package api.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/struct.proto";
+
+service ApiService {
+  rpc GetApiV1EditorFiles(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/api/v2/editor/files" };
+  }
+  rpc PostApiV1EditorFiles(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { post: "/api/v2/editor/files" body: "*" };
+  }
+  rpc GetApiV1EditorFilesId(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/api/v2/editor/files/:id" };
+  }
+  rpc PutApiV1EditorFilesId(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { put: "/api/v2/editor/files/:id" body: "*" };
+  }
+  rpc GetApiV1EditorFilesIdVersions(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/api/v2/editor/files/:id/versions" };
+  }
+  rpc PostApiV1Products(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { post: "/api/v2/products" body: "*" };
+  }
+  rpc GetApiV1Products(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/api/v2/products" };
+  }
+  rpc GetApiV1SellerStores(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/api/v2/seller/stores" };
+  }
+  rpc GetApiV1WorkerIngestHealth(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/api/v2/worker/ingest/health" };
+  }
+  rpc GetApiV1WorkerIngestWarm(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/api/v2/worker/ingest/warm" };
+  }
+  rpc PostApiV1WorkerIngestKick(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { post: "/api/v2/worker/ingest/kick" body: "*" };
+  }
+  rpc PostApiV1WorkerIngestUpload(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { post: "/api/v2/worker/ingest/upload" body: "*" };
+  }
+  rpc GetApiV1Routes(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/api/v2/__routes" };
+  }
+}
+
+message Empty {}
+message AnyRequest { google.protobuf.Struct body = 1; }
+message AnyResponse { google.protobuf.Struct body = 1; }

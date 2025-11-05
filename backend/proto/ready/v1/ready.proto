@@ -1,0 +1,15 @@
+syntax = "proto3";
+package ready.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/struct.proto";
+
+service ReadyService {
+  rpc GetReady(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/ready" };
+  }
+}
+
+message Empty {}
+message AnyRequest { google.protobuf.Struct body = 1; }
+message AnyResponse { google.protobuf.Struct body = 1; }

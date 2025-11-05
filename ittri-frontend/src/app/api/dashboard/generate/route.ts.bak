@@ -1,0 +1,161 @@
+// ITTRI/ittri-frontend/src/app/api/dashboard/generate/route.ts
+import { NextRequest } from "next/server";
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
+// ---- Backend base (normalized, no trailing slash) ----
+const RAW_BASE =
+  process.env.NEXT_PUBLIC_BACKEND_BASE ??
+  process.env.BACKEND_BASE ??
+  "http://localhost:8080";
+const BACKEND_BASE = RAW_BASE.replace(/\/+$/, "");
+
+// ---- Mode detection ----
+function bodyMode(body: any): "code" | "brief" | "meta" | "enhance" | "hints" {
+  const m = String(body?.mode || body?.kind || "").toLowerCase();
+  if (m === "code" || m === "codegen") return "code";
+  if (m === "brief" || m === "content-brief") return "brief";
+  if (m === "meta" || m === "content-meta") return "meta";
+  if (m === "enhance" || m === "prompt-enhance") return "enhance";
+  if (m === "hints" || m === "prompt-hints") return "hints";
+
+  // Infer if missing
+  if (typeof body?.topic === "string") return "brief";
+  if (typeof body?.url === "string") return "meta";
+  if (typeof body?.brief === "string" && Array.isArray(body?.goals)) return "enhance";
+  if (typeof body?.brief === "string" && (body?.include_keywords || body?.avoid)) return "hints";
+  return "code";
+}
+
+// ---- Endpoint candidates per mode (prefer new hub first) ----
+function candidatesForMode(mode: string): string[] {
+  switch (mode) {
+    case "brief":
+      return ["/api/v1/ai/brief", "/api/ai/content/brief", "/ai/content/brief"];
+    case "meta":
+      return ["/api/v1/ai/meta", "/api/ai/content/meta", "/ai/content/meta"];
+    case "enhance":
+      return ["/api/v1/ai/enhance", "/api/ai/seo/enhance", "/ai/seo/enhance"];
+    case "hints":
+      return ["/api/v1/ai/hints", "/api/ai/seo/hints", "/ai/seo/hints"];
+    case "code":
+    default:
+      return [
+        "/api/v1/ai/gen",
+        "/api/ai/code/gen",
+        "/api/ai/generate",
+        "/api/generate",
+        "/generate",
+      ];
+  }
+}
+
+// ---- Coerce/normalize codegen body so backend validator passes ----
+function coerceCodegenBody(orig: any) {
+  const body = { ...(orig ?? {}) };
+
+  // Map format → {"htm" | "react"}
+  const rawFmt = String(body?.format || "").toLowerCase();
+  const fmt = rawFmt === "react" ? "react" : "htm"; // default to "htm" for html/text/markdown/empty
+  body.format = fmt;
+
+  // Optional: normalize filename extension to match "htm"
+  if (typeof body.fileName === "string" && fmt === "htm") {
+    body.fileName = body.fileName.replace(/\.html?$/i, ".htm");
+  }
+
+  // Ensure `stream` is boolean (some callers send undefined)
+  if (typeof body.stream !== "boolean") body.stream = true;
+
+  // Normalize "prompt" aliasing if caller used "input"
+  if (typeof body.prompt !== "string" && typeof body.input === "string") {
+    body.prompt = body.input;
+  }
+
+  return body;
+}
+
+export async function POST(req: NextRequest) {
+  const qs = req.nextUrl.search || "";
+  const raw = await req.text();
+
+  let body: any = {};
+  try {
+    body = raw ? JSON.parse(raw) : {};
+  } catch {
+    body = {};
+  }
+
+  const mode = bodyMode(body);
+  const streamWanted = body?.stream === true;
+
+  // Adjust body for codegen to match backend contract
+  const forwardBody =
+    mode === "code" ? JSON.stringify(coerceCodegenBody(body)) : raw || "{}";
+
+  const tried: { url: string }[] = [];
+
+  for (const path of candidatesForMode(mode)) {
+    const url = `${BACKEND_BASE}${path}${qs}`;
+    tried.push({ url });
+
+    try {
+      const upstream = await fetch(url, {
+        method: "POST",
+        headers: {
+          "content-type": req.headers.get("content-type") ?? "application/json",
+          accept: streamWanted
+            ? "text/event-stream, application/x-ndjson, text/plain, application/json, */*"
+            : "application/json, text/plain, */*",
+          cookie: req.headers.get("cookie") ?? "",
+          authorization: req.headers.get("authorization") ?? "",
+          "x-chat-session-id": req.headers.get("x-chat-session-id") ?? "",
+          "x-forwarded-mode": mode,
+        },
+        body: forwardBody,
+        redirect: "manual",
+        cache: "no-store",
+      });
+
+      // Only fall through on definite "not here" cases
+      if (upstream.status === 404 || upstream.status === 405) continue;
+
+      // Return upstream as-is (including 401/403 or success)
+      const headers = new Headers();
+      headers.set("content-type", upstream.headers.get("content-type") ?? "text/plain");
+      headers.set("cache-control", "no-store");
+      headers.set("x-upstream-url", url);
+
+      return new Response(upstream.body, {
+        status: upstream.status,
+        headers,
+      });
+    } catch {
+      // Network error → try next candidate
+      continue;
+    }
+  }
+
+  // Nothing matched
+  return new Response(
+    JSON.stringify({
+      ok: false,
+      error: "route_not_found",
+      mode,
+      tried,
+      hint:
+        "Backend did not expose any expected endpoint for this mode or all failed.",
+    }),
+    { status: 502, headers: { "content-type": "application/json" } }
+  );
+}
+
+export async function GET() {
+  return new Response("Use POST", { status: 405 });
+}
+
+export async function OPTIONS() {
+  // Basic same-origin preflight (adjust if you need wider CORS)
+  return new Response(null, { status: 204 });
+}

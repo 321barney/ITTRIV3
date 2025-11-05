@@ -1,0 +1,18 @@
+syntax = "proto3";
+package sessions.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/struct.proto";
+
+service SessionsService {
+  rpc GetSessions(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/sessions" };
+  }
+  rpc PostSessions(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { post: "/sessions" body: "*" };
+  }
+}
+
+message Empty {}
+message AnyRequest { google.protobuf.Struct body = 1; }
+message AnyResponse { google.protobuf.Struct body = 1; }

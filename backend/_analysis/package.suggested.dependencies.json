@@ -1,0 +1,33 @@
+{
+  "dependencies": {
+    "knex": "*",
+    "fastify": "*",
+    "node-fetch": "*",
+    "bullmq": "*",
+    "jsonwebtoken": "*",
+    "fastify-plugin": "*",
+    "bcryptjs": "*",
+    "zod": "*",
+    "pino": "*",
+    "stripe": "*",
+    "pg": "*",
+    "@fastify/cors": "*",
+    "@fastify/helmet": "*",
+    "@fastify/cookie": "*",
+    "express": "*",
+    "crypto": "*",
+    "dotenv": "*",
+    "ioredis": "*",
+    "events": "*",
+    "csv-parse/sync": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "tsx": "^4.15.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "eslint": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-unused-imports": "^4.0.0"
+  }
+}

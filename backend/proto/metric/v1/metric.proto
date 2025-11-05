@@ -1,0 +1,15 @@
+syntax = "proto3";
+package metric.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/struct.proto";
+
+service MetricService {
+  rpc GetMetricOverview(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/metric/overview" };
+  }
+}
+
+message Empty {}
+message AnyRequest { google.protobuf.Struct body = 1; }
+message AnyResponse { google.protobuf.Struct body = 1; }

@@ -1,0 +1,15 @@
+syntax = "proto3";
+package info.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/struct.proto";
+
+service InfoService {
+  rpc GetInfo(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/info" };
+  }
+}
+
+message Empty {}
+message AnyRequest { google.protobuf.Struct body = 1; }
+message AnyResponse { google.protobuf.Struct body = 1; }

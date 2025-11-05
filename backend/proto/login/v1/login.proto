@@ -1,0 +1,15 @@
+syntax = "proto3";
+package login.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/struct.proto";
+
+service LoginService {
+  rpc PostLogin(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { post: "/login" body: "*" };
+  }
+}
+
+message Empty {}
+message AnyRequest { google.protobuf.Struct body = 1; }
+message AnyResponse { google.protobuf.Struct body = 1; }

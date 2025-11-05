@@ -1,0 +1,15 @@
+syntax = "proto3";
+package brief.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/struct.proto";
+
+service BriefService {
+  rpc PostBrief(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { post: "/brief" body: "*" };
+  }
+}
+
+message Empty {}
+message AnyRequest { google.protobuf.Struct body = 1; }
+message AnyResponse { google.protobuf.Struct body = 1; }

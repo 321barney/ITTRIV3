@@ -1,0 +1,15 @@
+syntax = "proto3";
+package generate.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/struct.proto";
+
+service GenerateService {
+  rpc PostGenerate(AnyRequest) returns (AnyResponse) {
+    option (google.api.http) = { post: "/generate" body: "*" };
+  }
+}
+
+message Empty {}
+message AnyRequest { google.protobuf.Struct body = 1; }
+message AnyResponse { google.protobuf.Struct body = 1; }

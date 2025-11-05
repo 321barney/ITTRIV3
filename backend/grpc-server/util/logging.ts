@@ -1,0 +1,1 @@
+export const logger = { info: (o: any, m?: string) => console.log(JSON.stringify({level:"info", time: Date.now(), ...o, msg:m})), error: (o: any, m?: string) => console.error(JSON.stringify({level:"error", time: Date.now(), ...o, msg:m})) };

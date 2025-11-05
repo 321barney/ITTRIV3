@@ -1,0 +1,39 @@
+version: "3.8"
+services:
+  api:
+    build: .
+    image: yourorg/yourapp:latest
+    env_file: .env
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+      - redis
+    restart: unless-stopped
+
+  worker:
+    image: yourorg/yourapp:latest
+    command: ["node","dist/worker.js"]
+    env_file: .env
+    depends_on:
+      - redis
+      - db
+    restart: unless-stopped
+
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: app_user
+      POSTGRES_PASSWORD: change_me
+      POSTGRES_DB: appdb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports: []
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server","--appendonly","yes"]
+    ports: []
+
+volumes:
+  pgdata:

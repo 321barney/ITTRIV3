@@ -1,0 +1,21 @@
+syntax = "proto3";
+package health.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/struct.proto";
+
+service HealthService {
+  rpc GetHealth(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/health" };
+  }
+  rpc GetHealth(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/__health" };
+  }
+  rpc GetHealth(Empty) returns (AnyResponse) {
+    option (google.api.http) = { get: "/health" };
+  }
+}
+
+message Empty {}
+message AnyRequest { google.protobuf.Struct body = 1; }
+message AnyResponse { google.protobuf.Struct body = 1; }
